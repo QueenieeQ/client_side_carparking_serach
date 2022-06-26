@@ -1,5 +1,5 @@
 
-function convertTimestamp(timestamp) {
+export function convertTimestamp(timestamp) {
 var d = new Date(timestamp * 1000), // Convert timestamp to ms
     yyyy = d.getFullYear(),
     mm = ('0' + (d.getMonth() + 1)).slice(-2), 

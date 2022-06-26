@@ -1,7 +1,9 @@
 import React, {useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import axios from 'axios';
-import {convertTimestamp} from 'Casting/convertTimestamp';
+// import {convertTimestamp} from 'Casting/convertTimestamp';
+// import 
+import {convertTimestamp} from './Casting'
 
 PostFiltersForm.propTypes ={
 onSubmit: PropTypes.func,
@@ -47,6 +49,7 @@ function PostFiltersForm() {
             return value;
           }
         }).map((parking) =>
+        
         <table className="table table-striped ">
         <thead> 
             
@@ -72,15 +75,14 @@ function PostFiltersForm() {
                     <td>{parking.rate_id}</td>
                     <td>{parking.slot_id}</td>
                     <td>
-                      <script >
-                      
-                      Casting.convertTimestamp('parking.in_time')
-                      </script>
+                    {convertTimestamp(!parking.in_time)}; //call javscript function within the braces
                       {parking.in_time}</td>
                     <td>{parking.out_time}</td>
                     <td>{parking.total_time}</td>
                     <td>{parking.earned_amount}</td>
-                    <td>{parking.paid_status}</td>
+                    <td>
+                      {  parking.paid_status == 1 ? '<label class="label label-success" style="font-size:12px;">Paid</label>' : '<label class="label label-danger">Not Paid</label>'}
+                      {parking.paid_status}</td>
 
                 </tr>
              
